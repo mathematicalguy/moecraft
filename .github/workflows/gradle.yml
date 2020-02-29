@@ -21,5 +21,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: moecraft-mod
-        path: build/libs/*.jar
-
+        path: build/libs
