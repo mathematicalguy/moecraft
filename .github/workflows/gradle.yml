@@ -17,3 +17,9 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Archive Mod JAR
+        uses: actions/upload-artifact@v1
+        with:
+          name: minecraft-mod-jar
+          path: build/libs/moecraft-*.jar
+
