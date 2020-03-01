@@ -2,6 +2,8 @@ package com.github.mathematicalguy;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.OreBlock;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -79,6 +81,12 @@ public class MoeCraftMod
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             // register a new block here
             LOGGER.info("HELLO from Register Block");
+            
         }
+        @SubscribeEvent
+        public static void onItemRegistry(final RegistryEvent.Register<Item> itemRegisterEvent) {
+
+        }
+
     }
 }
