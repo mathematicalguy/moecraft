@@ -22,7 +22,7 @@ def getVersionAppendage() {
     return "DEV." + (proc.exitValue() ? "NOGIT" : proc.text.trim())
 }
 
-version = "0.0."+getVersionAppendage()
+version = "1.15.2-0.0.0"+getVersionAppendage()
 group = 'com.github.mathematicalguy' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'moecraft'
 
