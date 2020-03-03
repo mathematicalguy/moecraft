@@ -1,4 +1,4 @@
-package com.github.mathematicalguy.Blocks;
+package com.github.mathematicalguy.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

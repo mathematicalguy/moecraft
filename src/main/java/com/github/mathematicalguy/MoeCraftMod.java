@@ -1,15 +1,9 @@
 package com.github.mathematicalguy;
 
-import com.github.mathematicalguy.Blocks.BlockBasic;
 import com.github.mathematicalguy.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.OreBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.BlockItem;
 import minecraftbyexample.usefultools.RenderTypeMBE;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
