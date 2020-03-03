@@ -20,9 +20,7 @@ public abstract class RenderTypeUtil {
         throw new IllegalStateException("This is a utility class, it can not be instantiated.");
     }
 
-    public static RenderType solid() {
-        return RenderType.func_228639_c_();
-    }
+    public static RenderType solid() {return RenderType.func_228639_c_(); }
 
     public static RenderType cutoutMipped() {
         return RenderType.func_228641_d_();
