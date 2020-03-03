@@ -1,10 +1,11 @@
 package com.github.mathematicalguy;
 
 import com.github.mathematicalguy.init.ModBlocks;
+import com.github.mathematicalguy.minecraft. RenderTypeUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import minecraftbyexample.usefultools.RenderTypeMBE;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -53,7 +54,7 @@ public class MoeCraftMod
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-        RenderTypeLookup.setRenderLayer(ModBlocks.Copperore, RenderTypeMBE.SOLID());
+        RenderTypeLookup.setRenderLayer(ModBlocks.Copperore, RenderTypeUtil.solid());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
