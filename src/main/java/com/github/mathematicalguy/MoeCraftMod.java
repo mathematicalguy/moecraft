@@ -5,7 +5,9 @@ import com.github.mathematicalguy.minecraft. RenderTypeUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -83,21 +85,23 @@ public class MoeCraftMod
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
     // Event bus for receiving Registry Events)
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD, modid = MOD_ID)
     public static class RegistryEvents {
         @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            LOGGER.info("HELLO from Register Block");
-
-
-
+        public static void onBlocksRegistration(final RegistryEvent.Register<Block> blockRegisterEvent) {
+            LOGGER.debug("Registering {} blocks", MOD_ID);
+            blockRegisterEvent.getRegistry().register(ModBlocks.CopperOre);
         }
 
-        }
         @SubscribeEvent
-        public static void onItemRegistry(final RegistryEvent.Register<Item> itemRegisterEvent) {
-
+        public static void onItemsRegistration(final RegistryEvent.Register<Item> itemRegisterEvent) {
+            Item.Properties CopperProperties = new Item.Properties()
+                    .group(ItemGroup.BUILDING_BLOCKS);  // which inventory tab?
+            ModBlocks.CopperOreItem= new BlockItem(ModBlocks.CopperOre, CopperProperties);
+            ModBlocks.CopperOreItem.setRegistryName(ModBlocks.CopperOre.getRegistryName());
+            itemRegisterEvent.getRegistry().register(ModBlocks.CopperOreItem);
         }
-
     }
+
+}
 
