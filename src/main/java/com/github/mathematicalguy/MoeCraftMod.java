@@ -57,6 +57,7 @@ public class MoeCraftMod
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+        RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderTypeUtil.solid());
 
     }
 
@@ -97,10 +98,6 @@ public class MoeCraftMod
         public static void onItemRegistry(final RegistryEvent.Register<Item> itemRegisterEvent) {
 
         }
-        @SubscribeEvent
-        public static void onClientSetupEvent(FMLClientSetupEvent event) {
-            RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderTypeUtil.solid());
-    }
 
     }
 
