@@ -9,30 +9,28 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
 
-@Mod.EventBusSubscriber(modid= "moecraft")
+
+@Mod.EventBusSubscriber(modid= MOD_ID)
 //find Referece
 public class ModBlocks {
-    public static Block Copperore;
-    public static BlockItem Copperoreitem;  // this holds the unique instance of the ItemBlock corresponding to your block
+    public static BlockBasic CopperOre;
+    public static BlockItem CopperOreItem;  // this holds the unique instance of the ItemBlock corresponding to your block
 
 
     @SubscribeEvent
     public static void onBlocksRegistration(final RegistryEvent.Register<Block> blockRegisterEvent) {
-        Copperore = (BlockBasic) (new BlockBasic().setRegistryName("moecraft", "copperore_registryname"));
-        blockRegisterEvent.getRegistry().register(Copperore);
+        CopperOre = (BlockBasic) (new BlockBasic().setRegistryName(MOD_ID, "copper_ore"));
+        blockRegisterEvent.getRegistry().register(CopperOre);
     }
 
     @SubscribeEvent
     public static void onItemsRegistration(final RegistryEvent.Register<Item> itemRegisterEvent) {
-
-        final int MAXIMUM_STACK_SIZE = 64;
-
         Item.Properties CopperProperties = new Item.Properties()
-                .maxStackSize(MAXIMUM_STACK_SIZE)
                 .group(ItemGroup.BUILDING_BLOCKS);  // which inventory tab?
-        Copperoreitem = new BlockItem(Copperore, CopperProperties);
-        Copperore.setRegistryName(Copperore.getRegistryName());
-        itemRegisterEvent.getRegistry().register(Copperoreitem);
+        CopperOreItem = new BlockItem(CopperOre, CopperProperties);
+        CopperOreItem.setRegistryName(CopperOre.getRegistryName());
+        itemRegisterEvent.getRegistry().register(CopperOreItem);
     }
 }

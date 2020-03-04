@@ -5,7 +5,6 @@ import com.github.mathematicalguy.minecraft. RenderTypeUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -23,10 +22,14 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.stream.Collectors;
 
+import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
+
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("moecraft")
+@Mod(MOD_ID)
 public class MoeCraftMod
 {
+    public static final String MOD_ID = "moecraft";
+
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -54,13 +57,13 @@ public class MoeCraftMod
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-        RenderTypeLookup.setRenderLayer(ModBlocks.Copperore, RenderTypeUtil.solid());
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
         // some example code to dispatch IMC to another mod
-        InterModComms.sendTo("moecraft", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+       InterModComms.sendTo("moecraft", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
     }
 
     private void processIMC(final InterModProcessEvent event)
@@ -94,6 +97,10 @@ public class MoeCraftMod
         public static void onItemRegistry(final RegistryEvent.Register<Item> itemRegisterEvent) {
 
         }
+        @SubscribeEvent
+        public static void onClientSetupEvent(FMLClientSetupEvent event) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderTypeUtil.solid());
+    }
 
     }
 
