@@ -15,13 +15,15 @@ public class BlockBasic extends Block {
        // public BlockBasic(){
       //  super(Block.Properties.create(Material.IRON).hardnessAndResistance(6));
    // }
-    public BlockBasic(BlockItem drop, int meta, int least_quantity, int most_quantity)
+    public BlockBasic(BlockItem drop,  int least_quantity, int most_quantity)
     {
         super(Block.Properties.create(Material.IRON).hardnessAndResistance(6));
         this.drop = drop;
-        this.meta = meta;
         this.least_quantity = least_quantity;
         this.most_quantity = most_quantity;
+    }
+    public BlockBasic(){
+        super(Block.Properties.create(Material.IRON).hardnessAndResistance(6));
     }
 
     public Item getItemDropped(int meta, Random random, int fortune) {

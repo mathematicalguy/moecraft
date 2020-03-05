@@ -89,16 +89,17 @@ public class MoeCraftMod
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD, modid = MOD_ID)
     public static class RegistryEvents {
         @SubscribeEvent
+        public static void onItemsRegistration(final RegistryEvent.Register<Item> itemRegisterEvent) {
+            ModBlocks.CopperOreItem.setRegistryName(ModBlocks.CopperOre.getRegistryName());
+            itemRegisterEvent.getRegistry().register(ModBlocks.CopperOreItem);
+        }
+        @SubscribeEvent
         public static void onBlocksRegistration(final RegistryEvent.Register<Block> blockRegisterEvent) {
             LOGGER.debug("Registering {} blocks", MOD_ID);
             blockRegisterEvent.getRegistry().register(ModBlocks.CopperOre);
         }
 
-        @SubscribeEvent
-        public static void onItemsRegistration(final RegistryEvent.Register<Item> itemRegisterEvent) {
-            ModBlocks.CopperOreItem.setRegistryName(ModBlocks.CopperOre.getRegistryName());
-            itemRegisterEvent.getRegistry().register(ModBlocks.CopperOreItem);
-        }
+
     }
 
 }

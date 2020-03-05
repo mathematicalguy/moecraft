@@ -14,7 +14,7 @@ import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
 
 
 public class ModBlocks {
-    public static BlockItem CopperOreItem = new BlockItem(ModBlocks.CopperOre, Itemprops.CopperProperties);;
-    public static BlockBasic CopperOre = (BlockBasic) (new BlockBasic(CopperOreItem, 0, 1, 1 ).setRegistryName(MOD_ID, "copper_ore"));
+    public static BlockBasic CopperOre = (BlockBasic) (new BlockBasic().setRegistryName(MOD_ID, "copper_ore"));
+    public static BlockItem CopperOreItem = new BlockItem(ModBlocks.CopperOre, Itemprops.CopperProperties);
   // this holds the unique instance of the ItemBlock corresponding to your block
 }
