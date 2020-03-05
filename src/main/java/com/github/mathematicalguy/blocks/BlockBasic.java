@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 public class BlockBasic extends Block {
     public BlockBasic()
     {
-        super(Block.Properties.create(Material.IRON)  // look at Block.Properties for further options
+        super(Block.Properties.create(Material.IRON).hardnessAndResistance(6)  // look at Block.Properties for further options
                 // typically useful: hardnessAndResistance(), harvestLevel(), harvestTool()
         );
     }
