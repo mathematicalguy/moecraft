@@ -1,5 +1,6 @@
 package com.github.mathematicalguy;
 
+import com.github.mathematicalguy.Properties.Itemprops;
 import com.github.mathematicalguy.init.ModBlocks;
 import com.github.mathematicalguy.minecraft. RenderTypeUtil;
 import net.minecraft.block.Block;
@@ -21,7 +22,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import com.github.mathematicalguy.Properties.Itemprops;
 import java.util.stream.Collectors;
 
 import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
@@ -95,9 +96,6 @@ public class MoeCraftMod
 
         @SubscribeEvent
         public static void onItemsRegistration(final RegistryEvent.Register<Item> itemRegisterEvent) {
-            Item.Properties CopperProperties = new Item.Properties()
-                    .group(ItemGroup.BUILDING_BLOCKS);  // which inventory tab?
-            ModBlocks.CopperOreItem= new BlockItem(ModBlocks.CopperOre, CopperProperties);
             ModBlocks.CopperOreItem.setRegistryName(ModBlocks.CopperOre.getRegistryName());
             itemRegisterEvent.getRegistry().register(ModBlocks.CopperOreItem);
         }
