@@ -1,9 +1,13 @@
 package com.github.mathematicalguy.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorld;
+import net.minecraftforge.common.ToolType;
 
 import java.util.Random;
 
@@ -17,27 +21,12 @@ public class BlockBasic extends Block {
    // }
     public BlockBasic(BlockItem drop,  int least_quantity, int most_quantity)
     {
-        super(Block.Properties.create(Material.IRON).hardnessAndResistance(6));
+        super(Block.Properties.create(Material.IRON).harvestTool(ToolType.PICKAXE).hardnessAndResistance(6).harvestLevel(1));
         this.drop = drop;
         this.least_quantity = least_quantity;
         this.most_quantity = most_quantity;
     }
     public BlockBasic(){
         super(Block.Properties.create(Material.IRON).hardnessAndResistance(6));
-    }
-
-    public Item getItemDropped(int meta, Random random, int fortune) {
-        return this.drop;
-    }
-
-
-    public int damageDropped(int metadata) {
-        return this.meta;
-    }
-
-    public int quantityDropped(int meta, int fortune, Random random) {
-        if (this.least_quantity >= this.most_quantity)
-            return this.least_quantity;
-        return this.least_quantity + random.nextInt(this.most_quantity - this.least_quantity + fortune + 1);
     }
 }
