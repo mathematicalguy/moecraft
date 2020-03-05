@@ -12,16 +12,11 @@ public class BlockBasic extends Block {
     private int meta;
     private int least_quantity;
     private int most_quantity;
-        public BlockBasic(){
-        super(Block.Properties.create(Material.IRON).hardnessAndResistance(6));
-    }
+       // public BlockBasic(){
+      //  super(Block.Properties.create(Material.IRON).hardnessAndResistance(6));
+   // }
     public BlockBasic(BlockItem drop, int meta, int least_quantity, int most_quantity)
     {
-<<<<<<< HEAD
-        super(Block.Properties.create(Material.IRON).hardnessAndResistance(6)  // look at Block.Properties for further options
-                // typically useful: hardnessAndResistance(), harvestLevel(), harvestTool()
-        );
-=======
         super(Block.Properties.create(Material.IRON).hardnessAndResistance(6));
         this.drop = drop;
         this.meta = meta;
@@ -31,7 +26,6 @@ public class BlockBasic extends Block {
 
     public Item getItemDropped(int meta, Random random, int fortune) {
         return this.drop;
->>>>>>> 6f6f081f232ef68dfec7293d3da94d8d4f675f40
     }
 
 
