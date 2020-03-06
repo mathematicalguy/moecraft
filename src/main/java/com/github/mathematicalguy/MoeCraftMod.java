@@ -3,6 +3,7 @@ package com.github.mathematicalguy;
 import com.github.mathematicalguy.Properties.Itemprops;
 import com.github.mathematicalguy.init.ModBlocks;
 import com.github.mathematicalguy.minecraft. RenderTypeUtil;
+import com.github.mathematicalguy.world.OreGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -52,7 +53,7 @@ public class MoeCraftMod
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code
+        OreGen.setupOreGen();
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
