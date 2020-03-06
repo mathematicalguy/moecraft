@@ -21,7 +21,10 @@ public class BlockBasic extends Block {
    // }
     public BlockBasic(BlockItem drop,  int least_quantity, int most_quantity)
     {
-        super(Block.Properties.create(Material.IRON).harvestTool(ToolType.PICKAXE).hardnessAndResistance(6).harvestLevel(1));
+        super(Block.Properties.create(Material.IRON)
+            .harvestTool(ToolType.PICKAXE)
+            .hardnessAndResistance(6)
+            .harvestLevel(1));
         this.drop = drop;
         this.least_quantity = least_quantity;
         this.most_quantity = most_quantity;
