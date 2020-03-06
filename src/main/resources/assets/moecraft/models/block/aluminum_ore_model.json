@@ -1,0 +1,13 @@
+
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "moecraft:block/aluminum_ore_00",
+    "up": "moecraft:block/aluminum_ore_00",
+    "north":"moecraft:block/aluminum_ore_00",
+    "east":"moecraft:block/aluminum_ore_00",
+    "south":"moecraft:block/aluminum_ore_00",
+    "west":"moecraft:block/aluminum_ore_00",
+    "particle": "block/lapis_block"
+  }
+}

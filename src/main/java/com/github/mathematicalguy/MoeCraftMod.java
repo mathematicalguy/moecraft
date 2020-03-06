@@ -92,11 +92,15 @@ public class MoeCraftMod
         public static void onItemsRegistration(final RegistryEvent.Register<Item> itemRegisterEvent) {
             ModBlocks.CopperOreItem.setRegistryName(ModBlocks.CopperOre.getRegistryName());
             itemRegisterEvent.getRegistry().register(ModBlocks.CopperOreItem);
+
+            ModBlocks.AluminumOreItem.setRegistryName(ModBlocks.AluminumOre.getRegistryName());
+            itemRegisterEvent.getRegistry().register(ModBlocks.AluminumOreItem);
         }
         @SubscribeEvent
         public static void onBlocksRegistration(final RegistryEvent.Register<Block> blockRegisterEvent) {
             LOGGER.debug("Registering {} blocks", MOD_ID);
             blockRegisterEvent.getRegistry().register(ModBlocks.CopperOre);
+            blockRegisterEvent.getRegistry().register(ModBlocks.AluminumOre);
         }
 
 
