@@ -1,0 +1,13 @@
+
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "moecraft:block/copperore_00",
+    "up": "moecraft:block/copperore_00",
+    "north":"moecraft:block/copperore_00",
+    "east":"moecraft:block/copperore_00",
+    "south":"moecraft:block/copperore_00",
+    "west":"moecraft:block/copperore_00",
+    "particle": "block/lapis_block"
+  }
+}
