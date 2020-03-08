@@ -2,6 +2,7 @@ package com.github.mathematicalguy;
 
 import com.github.mathematicalguy.Properties.Itemprops;
 import com.github.mathematicalguy.init.ModBlocks;
+import com.github.mathematicalguy.init.ModItems;
 import com.github.mathematicalguy.minecraft.GeneratorUtil;
 import com.github.mathematicalguy.minecraft. RenderTypeUtil;
 import net.minecraft.block.Block;
@@ -96,6 +97,10 @@ public class MoeCraftMod
 
             ModBlocks.AluminumOreItem.setRegistryName(ModBlocks.AluminumOre.getRegistryName());
             itemRegisterEvent.getRegistry().register(ModBlocks.AluminumOreItem);
+
+            itemRegisterEvent.getRegistry().register(ModItems.AlluminumIngot);
+
+            itemRegisterEvent.getRegistry().register(ModItems.CopperIngot);
         }
         @SubscribeEvent
         public static void onBlocksRegistration(final RegistryEvent.Register<Block> blockRegisterEvent) {
