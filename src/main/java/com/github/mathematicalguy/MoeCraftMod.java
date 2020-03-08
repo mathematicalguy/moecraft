@@ -53,8 +53,8 @@ public class MoeCraftMod
     }
     private void setup(final FMLCommonSetupEvent event)
     {
-        GeneratorUtil.generateOres(ModBlocks.CopperOre.getDefaultState(), 7, 10, 64);
-        GeneratorUtil.generateOres(ModBlocks.AluminumOre.getDefaultState(), 7, 10, 64);
+        GeneratorUtil.generateOres(ModBlocks.CopperOre.getDefaultState(), 7, 16, 64);
+        GeneratorUtil.generateOres(ModBlocks.AluminumOre.getDefaultState(), 7, 16, 64);
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
