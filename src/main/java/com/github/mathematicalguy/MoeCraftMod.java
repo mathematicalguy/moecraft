@@ -2,8 +2,8 @@ package com.github.mathematicalguy;
 
 import com.github.mathematicalguy.Properties.Itemprops;
 import com.github.mathematicalguy.init.ModBlocks;
+import com.github.mathematicalguy.minecraft.GeneratorUtil;
 import com.github.mathematicalguy.minecraft. RenderTypeUtil;
-import com.github.mathematicalguy.world.OreGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -50,10 +50,10 @@ public class MoeCraftMod
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
-
     private void setup(final FMLCommonSetupEvent event)
     {
-        OreGen.setupOreGen();
+        GeneratorUtil.generateOres(ModBlocks.CopperOre.getDefaultState(), 7, 10, 64);
+        GeneratorUtil.generateOres(ModBlocks.AluminumOre.getDefaultState(), 7, 10, 64);
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
