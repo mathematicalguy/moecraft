@@ -1,7 +1,0 @@
-{
-"type": "minecraft:smelting",
-"Ingredient": {"tag": "moecraft:aluminum_ore"},
-"result":  "moecraft:aluminum_ingot",
-  "Experience": 2.3,
-  "CookingTime": 200
-}
