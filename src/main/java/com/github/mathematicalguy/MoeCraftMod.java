@@ -1,16 +1,15 @@
 package com.github.mathematicalguy;
 
-import com.github.mathematicalguy.Properties.Itemprops;
 import com.github.mathematicalguy.init.ModBlocks;
 import com.github.mathematicalguy.init.ModItems;
 import com.github.mathematicalguy.minecraft.GeneratorUtil;
 import com.github.mathematicalguy.minecraft. RenderTypeUtil;
+import com.github.mathematicalguy.smelting.recipies;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.BlockItem;
+import net.minecraft.data.CookingRecipeBuilder;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -24,7 +23,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.github.mathematicalguy.Properties.Itemprops;
+
 import java.util.stream.Collectors;
 
 import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
@@ -64,6 +63,7 @@ public class MoeCraftMod
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
         RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderTypeUtil.solid());
 
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -98,7 +98,7 @@ public class MoeCraftMod
             ModBlocks.AluminumOreItem.setRegistryName(ModBlocks.AluminumOre.getRegistryName());
             itemRegisterEvent.getRegistry().register(ModBlocks.AluminumOreItem);
 
-            itemRegisterEvent.getRegistry().register(ModItems.AlluminumIngot);
+            itemRegisterEvent.getRegistry().register(ModItems.aluminumIngot);
 
             itemRegisterEvent.getRegistry().register(ModItems.CopperIngot);
         }
