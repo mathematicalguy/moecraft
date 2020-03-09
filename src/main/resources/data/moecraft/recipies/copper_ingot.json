@@ -1,6 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "Ingredient": {"tag": "moecraft:copper_ore"},
-  "result":  "moecraft:copper_ingot",
-  "Experience": 2.3,
-  "CookingTime": 200,

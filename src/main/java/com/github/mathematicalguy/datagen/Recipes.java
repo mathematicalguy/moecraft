@@ -19,7 +19,7 @@ public class Recipes extends RecipeProvider {
      super(generatorIn);
     }
 
-
+@Override
    protected void registerRecipes(Consumer<IFinishedRecipe> consumer){
 CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(ModBlocks.CopperOreItem), ModItems.CopperIngot, 0.6f, 200)
         .addCriterion("item",
