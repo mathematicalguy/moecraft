@@ -26,10 +26,38 @@ public class Recipes extends RecipeProvider {
             .patternLine(" y ")
             .key('x', ModItems.CopperIngot)
             .key('y', Items.STICK)
-            .addCriterion("CopperPickaxe",InventoryChangeTrigger.Instance.forItems(ModItems.CopperPickaxe))
+            .addCriterion("Copper Pickaxe",InventoryChangeTrigger.Instance.forItems(ModItems.CopperPickaxe))
             .build(consumer);
-
-
+    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperAxe)
+            .patternLine(" xx")
+            .patternLine(" yx")
+            .patternLine(" y ")
+            .key('x', ModItems.CopperIngot)
+            .key('y', Items.STICK)
+            .addCriterion("Copper Axe",InventoryChangeTrigger.Instance.forItems(ModItems.CopperAxe))
+            .build(consumer);
+    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperHoe)
+            .patternLine(" xx")
+            .patternLine(" y ")
+            .patternLine(" y ")
+            .key('x', ModItems.CopperIngot)
+            .key('y', Items.STICK)
+            .addCriterion("Copper Hoe", InventoryChangeTrigger.Instance.forItems(ModItems.CopperHoe))
+            .build(consumer);
+    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperShovel)
+            .patternLine(" x ")
+            .patternLine(" y ")
+            .patternLine(" y ")
+            .key('x', ModItems.CopperIngot)
+            .key('y', Items.STICK)
+            .addCriterion("Copper Shovel", InventoryChangeTrigger.Instance.forItems(ModItems.CopperShovel))
+            .build(consumer);
+    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperSword)
+            .patternLine(" x ")
+            .patternLine(" x ")
+            .patternLine(" y ")
+            .addCriterion("Copper Sword", InventoryChangeTrigger.Instance.forItems(ModItems.CopperSword))
+            .build(consumer);
         /* Already gen recipies */
 
         //CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(ModBlocks.CopperOreItem), ModItems.CopperIngot, 0.6f, 200)

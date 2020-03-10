@@ -15,7 +15,7 @@ import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
 
 public class ModBlocks {
     public static BlockBasic CopperOre = (BlockBasic) (new BlockBasic().setRegistryName(MOD_ID, "copper_ore"));
-    public static BlockItem CopperOreItem = new BlockItem(ModBlocks.CopperOre, Itemprops.OreProperties);
+    public static Item CopperOreItem = new BlockItem(ModBlocks.CopperOre, Itemprops.OreProperties).setRegistryName(ModBlocks.CopperOre.getRegistryName());
     public static BlockBasic AluminumOre = (BlockBasic) (new BlockBasic().setRegistryName(MOD_ID, "aluminum_ore"));
-    public static BlockItem AluminumOreItem = new BlockItem(ModBlocks.AluminumOre, Itemprops.OreProperties);
+    public static Item AluminumOreItem = new BlockItem(ModBlocks.AluminumOre, Itemprops.OreProperties).setRegistryName(ModBlocks.AluminumOre.getRegistryName());
 }
