@@ -94,7 +94,6 @@ public class MoeCraftMod
             itemRegisterEvent.getRegistry().registerAll(
                     ModBlocks.AluminumOreItem, ModBlocks.CopperOreItem,
                     ModItems.aluminumIngot, ModItems.CopperIngot,
-                    ModItems.CopperAxe,ModItems.CopperHoe,
                     ModItems.CopperPickaxe, ModItems.CopperShovel,
                     ModItems.CopperSword);
 
