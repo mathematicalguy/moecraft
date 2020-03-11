@@ -4,11 +4,9 @@ import com.github.mathematicalguy.init.ModBlocks;
 import com.github.mathematicalguy.init.ModItems;
 import com.github.mathematicalguy.minecraft.GeneratorUtil;
 import com.github.mathematicalguy.minecraft. RenderTypeUtil;
-import com.github.mathematicalguy.smelting.recipies;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.data.CookingRecipeBuilder;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -92,21 +90,21 @@ public class MoeCraftMod
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onItemsRegistration(final RegistryEvent.Register<Item> itemRegisterEvent) {
-            ModBlocks.CopperOreItem.setRegistryName(ModBlocks.CopperOre.getRegistryName());
-            itemRegisterEvent.getRegistry().register(ModBlocks.CopperOreItem);
 
-            ModBlocks.AluminumOreItem.setRegistryName(ModBlocks.AluminumOre.getRegistryName());
-            itemRegisterEvent.getRegistry().register(ModBlocks.AluminumOreItem);
+            itemRegisterEvent.getRegistry().registerAll(
+                    ModBlocks.AluminumOreItem, ModBlocks.CopperOreItem,
+                    ModItems.aluminumIngot, ModItems.CopperIngot,
+                    ModItems.CopperAxe,ModItems.CopperHoe,
+                    ModItems.CopperPickaxe, ModItems.CopperShovel,
+                    ModItems.CopperSword);
 
-            itemRegisterEvent.getRegistry().register(ModItems.aluminumIngot);
 
-            itemRegisterEvent.getRegistry().register(ModItems.CopperIngot);
+
         }
         @SubscribeEvent
         public static void onBlocksRegistration(final RegistryEvent.Register<Block> blockRegisterEvent) {
             LOGGER.debug("Registering {} blocks", MOD_ID);
-            blockRegisterEvent.getRegistry().register(ModBlocks.CopperOre);
-            blockRegisterEvent.getRegistry().register(ModBlocks.AluminumOre);
+            blockRegisterEvent.getRegistry().registerAll(ModBlocks.CopperOre, ModBlocks.AluminumOre);
         }
 
 

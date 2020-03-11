@@ -168,8 +168,9 @@ minecraft {
 
 
 
-            args '--mod', 'moecraft', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'moecraft', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
+            environment 'target', 'fmluserdevdata'
 
 
             mods {
