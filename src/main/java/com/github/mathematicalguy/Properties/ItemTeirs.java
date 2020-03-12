@@ -27,9 +27,7 @@ public class ItemTeirs {
         }
 
         @Override
-        public int getEnchantability() {
-            return 1;
-        }
+        public int getEnchantability() { return 10;}
 
         @Override
         public Ingredient getRepairMaterial() { return null; }
