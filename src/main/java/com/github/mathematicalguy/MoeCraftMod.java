@@ -95,7 +95,7 @@ public class MoeCraftMod
                     ModBlocks.AluminumOreItem, ModBlocks.CopperOreItem,
                     ModItems.aluminumIngot, ModItems.CopperIngot,
                     ModItems.CopperPickaxe, ModItems.CopperShovel,
-                    ModItems.CopperSword);
+                    ModItems.CopperSword, ModItems.CopperHoe, ModItems.CopperAxe);
 
 
 

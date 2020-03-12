@@ -20,7 +20,15 @@ public class Recipes extends RecipeProvider {
 
 @Override
    protected void registerRecipes(Consumer<IFinishedRecipe> consumer){
-    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperPickaxe)
+        ShapedRecipeBuilder.shapedRecipe(ModItems.CopperHoe)
+                .patternLine(" xx")
+                .patternLine(" y ")
+                .patternLine(" y ")
+                .key('x',ModItems.CopperIngot)
+                .key('y', Items.STICK)
+                .addCriterion("Copper Hoe", InventoryChangeTrigger.Instance.forItems(ModItems.CopperHoe))
+                .build(consumer);
+    /*ShapedRecipeBuilder.shapedRecipe(ModItems.CopperPickaxe)
             .patternLine("xxx")
             .patternLine(" y ")
             .patternLine(" y ")
@@ -48,8 +56,10 @@ public class Recipes extends RecipeProvider {
             .patternLine(" x ")
             .patternLine(" x ")
             .patternLine(" y ")
+            .key('x', ModItems.CopperIngot)
+            .key('y', Items.STICK)
             .addCriterion("Copper Sword", InventoryChangeTrigger.Instance.forItems(ModItems.CopperSword))
-            .build(consumer);
+            .build(consumer); */
         /* Already gen recipies */
 
         //CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(ModBlocks.CopperOreItem), ModItems.CopperIngot, 0.6f, 200)
