@@ -36,14 +36,6 @@ public class Recipes extends RecipeProvider {
             .key('y', Items.STICK)
             .addCriterion("Copper Axe",InventoryChangeTrigger.Instance.forItems(ModItems.CopperAxe))
             .build(consumer);
-    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperHoe)
-            .patternLine(" xx")
-            .patternLine(" y ")
-            .patternLine(" y ")
-            .key('x', ModItems.CopperIngot)
-            .key('y', Items.STICK)
-            .addCriterion("Copper Hoe", InventoryChangeTrigger.Instance.forItems(ModItems.CopperHoe))
-            .build(consumer);
     ShapedRecipeBuilder.shapedRecipe(ModItems.CopperShovel)
             .patternLine(" x ")
             .patternLine(" y ")

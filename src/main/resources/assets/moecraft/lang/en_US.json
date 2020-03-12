@@ -1,6 +1,4 @@
 {
   "block.moecraft.copper_ore": "Copper Ore",
-  "block.moecraft.aluminum_ore": "Aluminum Ore",
-  "item.moecraft.copper_ingot": "Copper Ingot",
-  "item.moecraft.aluminum_ingot": "Aluminum Ingot"
+  "block.moecraft.aluminum_ore": "Aluminum Ore"
 }
