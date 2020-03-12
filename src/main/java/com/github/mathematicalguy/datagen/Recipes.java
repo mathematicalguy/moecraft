@@ -20,52 +20,23 @@ public class Recipes extends RecipeProvider {
 
 @Override
    protected void registerRecipes(Consumer<IFinishedRecipe> consumer){
-        ShapedRecipeBuilder.shapedRecipe(ModItems.CopperHoe)
+
+}
+}
+
+
+
+        /* Already gen recipies */
+     /*    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperHoe)
                 .patternLine(" xx")
                 .patternLine(" y ")
                 .patternLine(" y ")
                 .key('x',ModItems.CopperIngot)
                 .key('y', Items.STICK)
                 .addCriterion("Copper Hoe", InventoryChangeTrigger.Instance.forItems(ModItems.CopperHoe))
-                .build(consumer);
-    /*ShapedRecipeBuilder.shapedRecipe(ModItems.CopperPickaxe)
-            .patternLine("xxx")
-            .patternLine(" y ")
-            .patternLine(" y ")
-            .key('x', ModItems.CopperIngot)
-            .key('y', Items.STICK)
-            .addCriterion("Copper Pickaxe",InventoryChangeTrigger.Instance.forItems(ModItems.CopperPickaxe))
-            .build(consumer);
-    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperAxe)
-            .patternLine(" xx")
-            .patternLine(" yx")
-            .patternLine(" y ")
-            .key('x', ModItems.CopperIngot)
-            .key('y', Items.STICK)
-            .addCriterion("Copper Axe",InventoryChangeTrigger.Instance.forItems(ModItems.CopperAxe))
-            .build(consumer);
-    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperShovel)
-            .patternLine(" x ")
-            .patternLine(" y ")
-            .patternLine(" y ")
-            .key('x', ModItems.CopperIngot)
-            .key('y', Items.STICK)
-            .addCriterion("Copper Shovel", InventoryChangeTrigger.Instance.forItems(ModItems.CopperShovel))
-            .build(consumer);
-    ShapedRecipeBuilder.shapedRecipe(ModItems.CopperSword)
-            .patternLine(" x ")
-            .patternLine(" x ")
-            .patternLine(" y ")
-            .key('x', ModItems.CopperIngot)
-            .key('y', Items.STICK)
-            .addCriterion("Copper Sword", InventoryChangeTrigger.Instance.forItems(ModItems.CopperSword))
-            .build(consumer); */
-        /* Already gen recipies */
+                .build(consumer); */
 
         //CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(ModBlocks.CopperOreItem), ModItems.CopperIngot, 0.6f, 200)
       //  .addCriterion("item",
                // InventoryChangeTrigger.Instance.forItems(ModBlocks.CopperOreItem))
      //   .build(consumer);
-
-    }
-}

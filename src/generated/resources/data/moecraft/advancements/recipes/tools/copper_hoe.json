@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "moecraft:copper_pickaxe"
+      "moecraft:copper_hoe"
     ]
   },
   "criteria": {
-    "Copper Pickaxe": {
+    "Copper Hoe": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "moecraft:copper_pickaxe"
+            "item": "moecraft:copper_hoe"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "moecraft:copper_pickaxe"
+        "recipe": "moecraft:copper_hoe"
       }
     }
   },
   "requirements": [
     [
-      "Copper Pickaxe",
+      "Copper Hoe",
       "has_the_recipe"
     ]
   ]
