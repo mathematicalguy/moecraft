@@ -15,6 +15,7 @@ public enum NewItemTier implements IItemTier {
     COPPER(1, 200, 4.0F, 1.0F, 5, () -> {
         return Ingredient.fromItems(ModItems.CopperIngot);
     });
+
     private final int harvestLevel;
     private final int maxUses;
     private final float efficiency;
@@ -45,12 +46,13 @@ public enum NewItemTier implements IItemTier {
     public int getHarvestLevel() {
         return this.harvestLevel;
     }
-
     public int getEnchantability() {
         return this.enchantability;
     }
 
+    @Override
     public Ingredient getRepairMaterial() {
         return this.repairMaterial.getValue();
     }
+
 }
