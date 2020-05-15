@@ -12,11 +12,11 @@ public class ModItems {
     public static Item CopperIngot =new Item(Itemprops.IngotProperties).setRegistryName("copper_ingot");
     public static Item aluminumIngot = new Item(Itemprops.IngotProperties).setRegistryName("aluminum_ingot");
 
-    public static PickaxeItem CopperPickaxe = register("copper_pickaxe", new PickaxeItem(NewItemTier.COPPER, 2, 2, Itemprops.StoneTool));
-    public static AxeItem CopperAxe = register("copper_axe", new AxeItem(NewItemTier.COPPER, 4,1,Itemprops.StoneTool));
-    public static ShovelItem CopperShovel = register("copper_shovel", new ShovelItem(NewItemTier.COPPER, 1, 2, Itemprops.StoneTool));
-    public static SwordItem CopperSword = register("copper_sword", new SwordItem(NewItemTier.COPPER, 5, 3, Itemprops.StoneTool));
-    public static HoeItem CopperHoe = register("copper_hoe", new HoeItem(NewItemTier.COPPER, 2,Itemprops.StoneTool));
+    public static PickaxeItem CopperPickaxe = register("copper_pickaxe", new PickaxeItem(NewItemTier.COPPER, 2, 2, Itemprops.CooperPickaxe));
+    public static AxeItem CopperAxe = register("copper_axe", new AxeItem(NewItemTier.COPPER, 4,1,Itemprops.CopperAxe));
+    public static ShovelItem CopperShovel = register("copper_shovel", new ShovelItem(NewItemTier.COPPER, 1, 2, Itemprops.CopperShovel));
+    public static SwordItem CopperSword = register("copper_sword", new SwordItem(NewItemTier.COPPER, 5, 3, Itemprops.CooperSword));
+    public static HoeItem CopperHoe = register("copper_hoe", new HoeItem(NewItemTier.COPPER, 2,Itemprops.CooperHoe));
 
     private static <T extends Item> T register(String key, T p_221547_1_) {
         return register(new ResourceLocation(key), p_221547_1_);
