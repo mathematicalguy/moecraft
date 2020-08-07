@@ -60,7 +60,7 @@ public class MoeCraftMod
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
         RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderTypeUtil.solid());
-
+        RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderTypeUtil.solid());
 
     }
 
