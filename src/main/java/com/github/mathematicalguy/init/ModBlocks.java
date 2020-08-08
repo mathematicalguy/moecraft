@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,4 +19,6 @@ public class ModBlocks {
     public static Item CopperOreItem = new BlockItem(ModBlocks.CopperOre, Itemprops.OreProperties).setRegistryName(ModBlocks.CopperOre.getRegistryName());
     public static BlockBasic AluminumOre = (BlockBasic) (new BlockBasic().setRegistryName(MOD_ID, "aluminum_ore"));
     public static Item AluminumOreItem = new BlockItem(ModBlocks.AluminumOre, Itemprops.OreProperties).setRegistryName(ModBlocks.AluminumOre.getRegistryName());
+
+
 }
