@@ -8,10 +8,10 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ObjectHolder;
 
 import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
 
-@net.minecraftforge.registries.ObjectHolder(MoeCraftMod.MOD_ID)
 public class ModItems {
     private static final DeferredRegister<Item> ITEM_DEFERRED_REGISTER = new DeferredRegister(ForgeRegistries.ITEMS, MOD_ID);
 
@@ -30,5 +30,4 @@ public class ModItems {
     public static void register(IEventBus bus) {
         ITEM_DEFERRED_REGISTER.register(bus);
     }
-
 }

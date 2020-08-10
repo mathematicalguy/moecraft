@@ -37,7 +37,7 @@ public class MoeCraftMod
     public static final String MOD_ID = "moecraft";
 
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(MoeCraftMod.class);
 
     public MoeCraftMod() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
