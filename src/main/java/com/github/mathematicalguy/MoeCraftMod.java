@@ -4,6 +4,7 @@ import com.github.mathematicalguy.init.ModBlocks;
 import com.github.mathematicalguy.init.ModItems;
 import com.github.mathematicalguy.minecraft.GeneratorUtil;
 import com.github.mathematicalguy.minecraft.RenderTypeUtil;
+import com.github.mathematicalguy.registry.Registrations;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -37,12 +38,11 @@ public class MoeCraftMod
     public static final String MOD_ID = "moecraft";
 
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger(MoeCraftMod.class);
+    public static final Logger LOGGER = LogManager.getLogger(MoeCraftMod.class);
 
     public MoeCraftMod() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModBlocks.register(eventBus);
-        ModItems.register(eventBus);
+        Registrations.register(eventBus);
 
         // Register the setup method for modloading
         eventBus.addListener(this::setup);
@@ -58,8 +58,8 @@ public class MoeCraftMod
     }
     private void setup(final FMLCommonSetupEvent event)
     {
-        GeneratorUtil.generateOres(ModBlocks.CopperOre.get().getDefaultState(), 7, 16, 64);
-        GeneratorUtil.generateOres(ModBlocks.AluminumOre.get().getDefaultState(), 7, 16, 64);
+        GeneratorUtil.generateOres(ModBlocks.CopperOre.getDefaultState(), 7, 16, 64);
+        GeneratorUtil.generateOres(ModBlocks.AluminumOre.getDefaultState(), 7, 16, 64);
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
@@ -67,8 +67,8 @@ public class MoeCraftMod
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-        RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre.get(), RenderTypeUtil.solid());
-        RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre.get(), RenderTypeUtil.solid());
+        RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderTypeUtil.solid());
+        RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderTypeUtil.solid());
 
     }
 
