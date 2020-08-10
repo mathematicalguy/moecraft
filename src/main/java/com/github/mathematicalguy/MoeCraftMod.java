@@ -16,10 +16,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -41,27 +38,28 @@ public class MoeCraftMod
     public static final Logger LOGGER = LogManager.getLogger(MoeCraftMod.class);
 
     public MoeCraftMod() {
-        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         Registrations.register(eventBus);
 
-        // Register the setup method for modloading
+        // Register Mod Configuration Methods
         eventBus.addListener(this::setup);
-        // Register the enqueueIMC method for modloading
         eventBus.addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
         eventBus.addListener(this::processIMC);
-        // Register the doClientStuff method for modloading
         eventBus.addListener(this::doClientStuff);
+        eventBus.addListener(this::loadComplete);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
     private void setup(final FMLCommonSetupEvent event)
     {
-        GeneratorUtil.generateOres(ModBlocks.CopperOre.getDefaultState(), 7, 16, 64);
-        GeneratorUtil.generateOres(ModBlocks.AluminumOre.getDefaultState(), 7, 16, 64);
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
+    }
+
+    private void loadComplete(FMLLoadCompleteEvent event) {
+        LOGGER.info("Generating MoeCraft ores into the world...");
+        GeneratorUtil.generateOre(ModBlocks.CopperOre, 7, 16, 64);
+        GeneratorUtil.generateOre(ModBlocks.AluminumOre, 7, 16, 64);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -69,7 +67,6 @@ public class MoeCraftMod
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
         RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderTypeUtil.solid());
         RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderTypeUtil.solid());
-
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
