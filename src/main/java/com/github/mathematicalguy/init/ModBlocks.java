@@ -1,24 +1,27 @@
 package com.github.mathematicalguy.init;
 
-import com.github.mathematicalguy.Properties.Itemprops;
 import com.github.mathematicalguy.blocks.BlockBasic;
 import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.crafting.ShapedRecipe;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
 
 
 public class ModBlocks {
-    public static BlockBasic CopperOre = (BlockBasic) (new BlockBasic().setRegistryName(MOD_ID, "copper_ore"));
-    public static Item CopperOreItem = new BlockItem(ModBlocks.CopperOre, Itemprops.OreProperties).setRegistryName(ModBlocks.CopperOre.getRegistryName());
-    public static BlockBasic AluminumOre = (BlockBasic) (new BlockBasic().setRegistryName(MOD_ID, "aluminum_ore"));
-    public static Item AluminumOreItem = new BlockItem(ModBlocks.AluminumOre, Itemprops.OreProperties).setRegistryName(ModBlocks.AluminumOre.getRegistryName());
 
+    private static final DeferredRegister<Block> BLOCK_DEFERRED_REGISTRY = new DeferredRegister(ForgeRegistries.BLOCKS, MOD_ID);
 
+    public static final RegistryObject<Block> CopperOre = BLOCK_DEFERRED_REGISTRY.register("copper_ore", ModBlocks::basic);
+    public static final RegistryObject<Block> AluminumOre = BLOCK_DEFERRED_REGISTRY.register("aluminum_ore", ModBlocks::basic);
+
+    public static void register(IEventBus bus) {
+        BLOCK_DEFERRED_REGISTRY.register(bus);
+    }
+
+    private static Block basic() {
+        return new BlockBasic();
+    }
 }

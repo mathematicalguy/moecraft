@@ -10,10 +10,10 @@ import java.util.function.Supplier;
 
 public enum NewItemTier implements IItemTier {
     ALUMINUM(1, 100, 4.0F, 1.0F, 5, () -> {
-        return Ingredient.fromItems(ModItems.aluminumIngot);
+        return Ingredient.fromItems(ModItems.AluminumIngot::get);
     }),
     COPPER(1, 200, 4.0F, 1.0F, 5, () -> {
-        return Ingredient.fromItems(ModItems.CopperIngot);
+        return Ingredient.fromItems(ModItems.CopperIngot::get);
     });
 
     private final int harvestLevel;
