@@ -7,7 +7,6 @@ import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
 
 @ObjectHolder(MOD_ID)
 public class ModBlocks {
-
     @ObjectHolder("copper_ore")
     public static final Block CopperOre = null;
     @ObjectHolder("aluminum_ore")

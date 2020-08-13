@@ -23,7 +23,7 @@ public class GeneratorUtil {
     public static void generateOre(Block oreBlock, int veinSize, int chunkAmount, int maxHeight) {
         MoeCraftMod.LOGGER.debug("Generating {} into the world", oreBlock.getRegistryName());
         ConfiguredPlacement orePlacement = Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(chunkAmount, 0, 0, maxHeight));
-        ConfiguredFeature oreFeature = Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, oreBlock.getDefaultState(), veinSize))
+        ConfiguredFeature oreFeature = Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, oreBlock.getDefaultState(), veinSize))
                 .func_227228_a_(orePlacement);
         generate(GenerationStage.Decoration.UNDERGROUND_ORES, oreFeature);
     }

@@ -1,17 +1,11 @@
 package com.github.mathematicalguy;
 
 import com.github.mathematicalguy.init.ModBlocks;
-import com.github.mathematicalguy.init.ModItems;
 import com.github.mathematicalguy.minecraft.GeneratorUtil;
-import com.github.mathematicalguy.minecraft.RenderTypeUtil;
 import com.github.mathematicalguy.registry.Registrations;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.EventBus;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -19,8 +13,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -65,8 +57,8 @@ public class MoeCraftMod
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-        RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderTypeUtil.solid());
-        RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderTypeUtil.solid());
+        RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderType.solid());
+        RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderType.solid());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
