@@ -1,6 +1,7 @@
 package com.github.mathematicalguy.Properties;
 
 import com.github.mathematicalguy.init.ModItems;
+import com.github.mathematicalguy.registry.Registrations;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
@@ -10,10 +11,10 @@ import java.util.function.Supplier;
 
 public enum NewItemTier implements IItemTier {
     ALUMINUM(1, 100, 4.0F, 1.0F, 5, () -> {
-        return Ingredient.fromItems(ModItems.aluminumIngot);
+        return Ingredient.fromItems(Registrations.AluminumIngot::get);
     }),
     COPPER(1, 200, 4.0F, 1.0F, 5, () -> {
-        return Ingredient.fromItems(ModItems.CopperIngot);
+        return Ingredient.fromItems(Registrations.CopperIngot::get);
     });
 
     private final int harvestLevel;
