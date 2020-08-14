@@ -1,6 +1,7 @@
 package com.github.mathematicalguy;
 
 import com.github.mathematicalguy.init.ModBlocks;
+import com.github.mathematicalguy.init.ModItems;
 import com.github.mathematicalguy.minecraft.GeneratorUtil;
 import com.github.mathematicalguy.registry.Registrations;
 import net.minecraft.client.renderer.RenderType;
