@@ -45,7 +45,6 @@ public class MoeCraftMod
     }
     private void setup(final FMLCommonSetupEvent event)
     {
-
     }
 
     private void loadComplete(FMLLoadCompleteEvent event) {
@@ -57,8 +56,8 @@ public class MoeCraftMod
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-        RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderType.solid());
-        RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderType.solid());
+        RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderType.getSolid());
+        RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderType.getSolid());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

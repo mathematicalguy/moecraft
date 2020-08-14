@@ -1,6 +1,5 @@
 package com.github.mathematicalguy.datagen;
 
-import com.google.common.eventbus.Subscribe;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
