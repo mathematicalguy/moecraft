@@ -5,6 +5,9 @@ import com.github.mathematicalguy.minecraft.GeneratorUtil;
 import com.github.mathematicalguy.registry.Registrations;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -25,6 +28,12 @@ import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
 public class MoeCraftMod
 {
     public static final String MOD_ID = "moecraft";
+    public static final ItemGroup TAB = new ItemGroup("Moecraft") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModItems.CopperIngot);
+        }
+    };
 
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger(MoeCraftMod.class);
