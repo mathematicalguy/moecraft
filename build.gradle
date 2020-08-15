@@ -137,7 +137,10 @@ jar {
                 "Implementation-Title": project.name,
                 "Implementation-Version": "${version}",
                 "Implementation-Vendor" :"moecraftsareus",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                'Created-By'     : "Gradle ${gradle.gradleVersion}",
+                'Build-Jdk'      : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                'Build-OS'       : "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
         ])
     }
 }
@@ -151,17 +154,30 @@ def reobfArtifact = artifacts.add('default', reobfFile) {
     type 'jar'
     builtBy 'reobfJar'
 }
+task sourceJar(type: org.gradle.jvm.tasks.Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allJava
+}
 
+task packageJavadoc(type: org.gradle.jvm.tasks.Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        mavenJava(org.gradle.api.publish.maven.MavenPublication) {
             artifact reobfArtifact
+            artifact sourceJar
+            artifact packageJavadoc
         }
     }
-
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            url "https://maven.pkg.github.com/mathematicalguy/moecraft"
+            credentials {
+                username = System.env.USERNAME
+                password = System.env.PASSWORD
+            }
         }
     }
 }
