@@ -1,8 +1,6 @@
-package com.github.mathematicalguy.Properties;
+package com.github.mathematicalguy.moecraft.properties;
 
-import com.github.mathematicalguy.init.ModItems;
-import com.github.mathematicalguy.registry.Registrations;
-import net.minecraft.block.Blocks;
+import com.github.mathematicalguy.moecraft.registry.Registrations;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;

@@ -1,4 +1,4 @@
-package com.github.mathematicalguy.blocks;
+package com.github.mathematicalguy.moecraft.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

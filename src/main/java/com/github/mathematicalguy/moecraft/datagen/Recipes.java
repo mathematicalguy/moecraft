@@ -1,15 +1,6 @@
-package com.github.mathematicalguy.datagen;
+package com.github.mathematicalguy.moecraft.datagen;
 
-import com.github.mathematicalguy.init.ModBlocks;
-import com.github.mathematicalguy.init.ModItems;
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.data.*;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipe;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.StandaloneLootEntry;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
 import java.util.function.Consumer;
 

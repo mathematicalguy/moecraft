@@ -1,9 +1,7 @@
-package com.github.mathematicalguy.Properties;
+package com.github.mathematicalguy.moecraft.properties;
 
-import com.github.mathematicalguy.MoeCraftMod;
+import com.github.mathematicalguy.moecraft.MoeCraftMod;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraftforge.common.ToolType;
 
 public class Itemprops {
    public static Item.Properties OreProperties = new Item.Properties().group(MoeCraftMod.TAB);  // which inventory tab?

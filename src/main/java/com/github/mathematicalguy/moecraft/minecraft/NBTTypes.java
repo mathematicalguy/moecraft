@@ -1,4 +1,4 @@
-package com.github.mathematicalguy.minecraft;
+package com.github.mathematicalguy.moecraft.minecraft;
 
 import net.minecraft.nbt.*;
 

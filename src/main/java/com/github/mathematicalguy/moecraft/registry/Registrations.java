@@ -1,9 +1,9 @@
-package com.github.mathematicalguy.registry;
+package com.github.mathematicalguy.moecraft.registry;
 
-import com.github.mathematicalguy.MoeCraftMod;
-import com.github.mathematicalguy.Properties.Itemprops;
-import com.github.mathematicalguy.Properties.NewItemTier;
-import com.github.mathematicalguy.blocks.BlockBasic;
+import com.github.mathematicalguy.moecraft.MoeCraftMod;
+import com.github.mathematicalguy.moecraft.properties.Itemprops;
+import com.github.mathematicalguy.moecraft.properties.NewItemTier;
+import com.github.mathematicalguy.moecraft.block.BlockBasic;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
@@ -16,7 +16,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
+import static com.github.mathematicalguy.moecraft.MoeCraftMod.MOD_ID;
 
 public class Registrations {
 
