@@ -9,13 +9,13 @@ import net.minecraft.nbt.*;
  * Used to make code a little more readable, and rename decompiled functions
  */
 public abstract class NBTTypes {
-    public static final byte LONG_NBT_ID = LongNBT.func_229698_a_(0).getId();
-    public static final byte INT_NBT_ID = IntNBT.func_229692_a_(0).getId();
-    public static final byte SHORT_NBT_ID = ShortNBT.func_229701_a_((short)0).getId();
-    public static final byte BYTE_NBT_ID = ByteNBT.func_229671_a_((byte)0).getId();
-    public static final byte FLOAT_NBT_ID = FloatNBT.func_229689_a_(0).getId();
-    public static final byte DOUBLE_NBT_ID = DoubleNBT.func_229684_a_(0).getId();
-    public static final byte STRING_NBT_ID = StringNBT.func_229705_a_("").getId();
+    public static final byte LONG_NBT_ID = LongNBT.valueOf(0).getId();
+    public static final byte INT_NBT_ID = IntNBT.valueOf(0).getId();
+    public static final byte SHORT_NBT_ID = ShortNBT.valueOf((short)0).getId();
+    public static final byte BYTE_NBT_ID = ByteNBT.valueOf((byte)0).getId();
+    public static final byte FLOAT_NBT_ID = FloatNBT.valueOf(0).getId();
+    public static final byte DOUBLE_NBT_ID = DoubleNBT.valueOf(0).getId();
+    public static final byte STRING_NBT_ID = StringNBT.valueOf("").getId();
     public static final byte BYTE_ARRAY_NBT_ID = new ByteArrayNBT(new byte[] {0}).getId();
     public static final byte INT_ARRAY_NBT_ID = new IntArrayNBT(new int[] {0}).getId();
     public static final byte LONG_ARRAY_NBT_ID = new LongArrayNBT(new long[] {0}).getId();

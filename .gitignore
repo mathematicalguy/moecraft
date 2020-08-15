@@ -4,3 +4,6 @@ build/
 out/
 run/
 .DS_Store
+.project
+.settings/
+src/generated/

@@ -1,73 +1,80 @@
 package com.github.mathematicalguy;
 
-import com.github.mathematicalguy.Properties.Itemprops;
 import com.github.mathematicalguy.init.ModBlocks;
-import com.github.mathematicalguy.minecraft. RenderTypeUtil;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import com.github.mathematicalguy.init.ModItems;
+import com.github.mathematicalguy.minecraft.GeneratorUtil;
+import com.github.mathematicalguy.registry.Registrations;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.github.mathematicalguy.Properties.Itemprops;
+
 import java.util.stream.Collectors;
 
 import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MOD_ID)
+@Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MoeCraftMod
 {
     public static final String MOD_ID = "moecraft";
+    public static final ItemGroup TAB = new ItemGroup("Moecraft") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModItems.CopperIngot);
+        }
+    };
 
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger(MoeCraftMod.class);
 
     public MoeCraftMod() {
-        // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        // Register the enqueueIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-        // Register the doClientStuff method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        Registrations.register(eventBus);
+
+        // Register Mod Configuration Methods
+        eventBus.addListener(this::setup);
+        eventBus.addListener(this::enqueueIMC);
+        eventBus.addListener(this::processIMC);
+        eventBus.addListener(this::doClientStuff);
+        eventBus.addListener(this::loadComplete);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
-
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+    }
+
+    private void loadComplete(FMLLoadCompleteEvent event) {
+        LOGGER.info("Generating MoeCraft ores into the world...");
+        GeneratorUtil.generateOre(ModBlocks.CopperOre, 7, 16, 64);
+        GeneratorUtil.generateOre(ModBlocks.AluminumOre, 7, 16, 64);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-        RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderTypeUtil.solid());
-
+        RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderType.getSolid());
+        RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderType.getSolid());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
         // some example code to dispatch IMC to another mod
-       InterModComms.sendTo("moecraft", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+//       InterModComms.sendTo("moecraft", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
     }
 
     private void processIMC(final InterModProcessEvent event)
@@ -83,24 +90,5 @@ public class MoeCraftMod
         // do something when the server starts
         LOGGER.info("HELLO from server starting");
     }
-
-    // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
-    // Event bus for receiving Registry Events)
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD, modid = MOD_ID)
-    public static class RegistryEvents {
-        @SubscribeEvent
-        public static void onItemsRegistration(final RegistryEvent.Register<Item> itemRegisterEvent) {
-            ModBlocks.CopperOreItem.setRegistryName(ModBlocks.CopperOre.getRegistryName());
-            itemRegisterEvent.getRegistry().register(ModBlocks.CopperOreItem);
-        }
-        @SubscribeEvent
-        public static void onBlocksRegistration(final RegistryEvent.Register<Block> blockRegisterEvent) {
-            LOGGER.debug("Registering {} blocks", MOD_ID);
-            blockRegisterEvent.getRegistry().register(ModBlocks.CopperOre);
-        }
-
-
-    }
-
 }
 
