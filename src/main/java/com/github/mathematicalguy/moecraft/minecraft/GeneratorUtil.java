@@ -1,6 +1,6 @@
-package com.github.mathematicalguy.minecraft;
+package com.github.mathematicalguy.moecraft.minecraft;
 
-import com.github.mathematicalguy.MoeCraftMod;
+import com.github.mathematicalguy.moecraft.MoeCraftMod;
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
