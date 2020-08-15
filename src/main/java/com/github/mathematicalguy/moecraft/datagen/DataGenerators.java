@@ -1,4 +1,4 @@
-package com.github.mathematicalguy.datagen;
+package com.github.mathematicalguy.moecraft.datagen;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

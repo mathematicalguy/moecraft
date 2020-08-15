@@ -1,18 +1,16 @@
-package com.github.mathematicalguy;
+package com.github.mathematicalguy.moecraft;
 
-import com.github.mathematicalguy.init.ModBlocks;
-import com.github.mathematicalguy.init.ModItems;
-import com.github.mathematicalguy.minecraft.GeneratorUtil;
-import com.github.mathematicalguy.registry.Registrations;
+import com.github.mathematicalguy.moecraft.init.ModBlocks;
+import com.github.mathematicalguy.moecraft.init.ModItems;
+import com.github.mathematicalguy.moecraft.minecraft.GeneratorUtil;
+import com.github.mathematicalguy.moecraft.registry.Registrations;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
@@ -22,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.stream.Collectors;
 
-import static com.github.mathematicalguy.MoeCraftMod.MOD_ID;
+import static com.github.mathematicalguy.moecraft.MoeCraftMod.MOD_ID;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MOD_ID)
