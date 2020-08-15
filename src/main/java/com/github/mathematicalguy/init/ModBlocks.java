@@ -11,4 +11,6 @@ public class ModBlocks {
     public static final Block CopperOre = null;
     @ObjectHolder("aluminum_ore")
     public static final Block AluminumOre = null;
+    @ObjectHolder("salt")
+    public static final Block Salt = null;
 }

@@ -33,12 +33,13 @@ public class Registrations {
      */
     public static final RegistryObject<Block> CopperOre = BLOCKS.register("copper_ore", () -> new BlockBasic());
     public static final RegistryObject<Block> AluminumOre = BLOCKS.register("aluminum_ore", () -> new BlockBasic());
-
+    public static final RegistryObject<Block> Salt = BLOCKS.register("salt", () -> new BlockBasic());
     /*
      * Register BlockItems
      */
     public static RegistryObject<Item> CopperOreItem = ITEMS.register("copper_ore", () -> new BlockItem(CopperOre.get(), Itemprops.OreProperties));
     public static RegistryObject<Item> AluminumOreItem = ITEMS.register("aluminum_ore", () -> new BlockItem(AluminumOre.get(), Itemprops.OreProperties));
+    public static RegistryObject<Item> SaltItem = ITEMS.register("salt", () -> new BlockItem(AluminumOre.get(), Itemprops.OreProperties));
 
     /*
      * Register Items
