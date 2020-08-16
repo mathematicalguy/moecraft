@@ -27,5 +27,7 @@ public class ModItems {
     public static final Item CopperOreItem = null;
     @ObjectHolder("aluminum_ore")
     public static final Item AluminumOreItem = null;
+    @ObjectHolder("salt")
+    public static final Item SaltItem = null;
 
 }

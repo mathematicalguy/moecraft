@@ -8,7 +8,8 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.*;
@@ -64,17 +65,19 @@ public class MoeCraftMod
 
     @SubscribeEvent
     public static void loadComplete(FMLLoadCompleteEvent event) {
-        LOGGER.info("Generating MoeCraft ores into the world...");
+        LOGGER.debug("Generating MoeCraft ores into the world...");
         GeneratorUtil.generateOre(ModBlocks.CopperOre, 7, 16, 64);
         GeneratorUtil.generateOre(ModBlocks.AluminumOre, 7, 16, 64);
+        GeneratorUtil.generateblobbiome(ModBlocks.Salt, Biomes.BEACH, GenerationStage.Decoration.LOCAL_MODIFICATIONS);
     }
 
     @SubscribeEvent
     public static void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+        LOGGER.debug("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
         RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderType.getSolid());
         RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderType.getSolid());
+        RenderTypeLookup.setRenderLayer(ModBlocks.Salt,RenderType.getSolid());
     }
 
     @SubscribeEvent
@@ -88,7 +91,7 @@ public class MoeCraftMod
     public static void processIMC(final InterModProcessEvent event)
     {
         // some example code to receive and process InterModComms from other mods
-        LOGGER.info("Got IMC {}", event.getIMCStream().
+        LOGGER.debug("Got IMC {}", event.getIMCStream().
                 map(m->m.getMessageSupplier().get()).
                 collect(Collectors.toList()));
     }
