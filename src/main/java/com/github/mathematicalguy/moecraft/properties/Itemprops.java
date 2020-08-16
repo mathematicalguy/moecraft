@@ -12,4 +12,5 @@ public class Itemprops {
    public static Item.Properties CopperPickaxe = new Item.Properties().group(MoeCraftMod.TAB).maxStackSize(1);
    public static Item.Properties CopperSword = new Item.Properties().group(MoeCraftMod.TAB).maxStackSize(1);
 
+
 }
