@@ -1,4 +1,4 @@
-![Java CI](https://github.com/mathematicalguy/moecraft/workflows/Java%20CI/badge.svg)
+![Continuous Integration](https://github.com/mathematicalguy/moecraft/workflows/Continuous%20Integration/badge.svg)
 
 # moecraft
 MoeCraft Minecraft Mod
