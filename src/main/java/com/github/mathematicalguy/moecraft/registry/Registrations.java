@@ -1,10 +1,12 @@
 package com.github.mathematicalguy.moecraft.registry;
 
 import com.github.mathematicalguy.moecraft.MoeCraftMod;
+import com.github.mathematicalguy.moecraft.entity.Mrconlon;
 import com.github.mathematicalguy.moecraft.properties.Itemprops;
 import com.github.mathematicalguy.moecraft.properties.NewItemTier;
 import com.github.mathematicalguy.moecraft.block.BlockBasic;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.*;
@@ -69,7 +71,7 @@ public class Registrations {
     /*
      * Register Entities
      */
-//    public static final RegistryObject<EntityType<MyEntity>> MyEntity = ENTITIES.register("my_entity", () -> EntityType.Builder.create(MyEntity::new, EntityClassification.MONSTER).setTrackingRange(64).size(0.5f, 0.5f).build("my_entity"));
+  public static final RegistryObject<EntityType<Mrconlon>> Mr_Conlon = ENTITIES.register("mr_conlon", () -> EntityType.Builder.<Mrconlon>create(Mrconlon::new, EntityClassification.CREATURE).setTrackingRange(64).size(0.5f, 0.5f).build("mr_conlon"));
 
 
     /*
