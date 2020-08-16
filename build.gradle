@@ -56,6 +56,8 @@ minecraft {
 
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'info'
+            property 'moecraft.logging.level', 'debug'
+
 
             mods {
                 moecraft {
@@ -72,6 +74,7 @@ minecraft {
 
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'info'
+            property 'moecraft.logging.level', 'debug'
 
             mods {
                 morecraft {
@@ -88,7 +91,8 @@ minecraft {
 
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'info'
-            property 'com.github.mathematicalguy.console.level', 'debug'
+            property 'moecraft.logging.level', 'debug'
+
 
             args '--mod', 'moecraft', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             environment 'target', 'fmluserdevdata'
