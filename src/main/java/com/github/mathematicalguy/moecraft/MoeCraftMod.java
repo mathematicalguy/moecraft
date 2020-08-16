@@ -8,6 +8,11 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.BlockBlobConfig;
+import net.minecraft.world.gen.feature.BlockBlobFeature;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -60,6 +65,7 @@ public class MoeCraftMod
         LOGGER.info("Generating MoeCraft ores into the world...");
         GeneratorUtil.generateOre(ModBlocks.CopperOre, 7, 16, 64);
         GeneratorUtil.generateOre(ModBlocks.AluminumOre, 7, 16, 64);
+        GeneratorUtil.generateblobbiome(ModBlocks.Salt, Biomes.BEACH, GenerationStage.Decoration.LOCAL_MODIFICATIONS);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -67,6 +73,7 @@ public class MoeCraftMod
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
         RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderType.getSolid());
         RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderType.getSolid());
+        RenderTypeLookup.setRenderLayer(ModBlocks.Salt,RenderType.getSolid());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

@@ -39,7 +39,7 @@ public class Registrations {
      */
     public static RegistryObject<Item> CopperOreItem = ITEMS.register("copper_ore", () -> new BlockItem(CopperOre.get(), Itemprops.OreProperties));
     public static RegistryObject<Item> AluminumOreItem = ITEMS.register("aluminum_ore", () -> new BlockItem(AluminumOre.get(), Itemprops.OreProperties));
-    public static RegistryObject<Item> SaltItem = ITEMS.register("salt", () -> new BlockItem(AluminumOre.get(), Itemprops.OreProperties));
+    public static RegistryObject<Item> SaltItem = ITEMS.register("salt", () -> new BlockItem(Salt.get(), Itemprops.OreProperties));
 
     /*
      * Register Items

@@ -1,0 +1,13 @@
+
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "moecraft:block/salt",
+    "up": "moecraft:block/salt",
+    "north":"moecraft:block/salt",
+    "east":"moecraft:block/salt",
+    "south":"moecraft:block/salt",
+    "west":"moecraft:block/salt",
+    "particle": "block/lapis_block"
+  }
+}
