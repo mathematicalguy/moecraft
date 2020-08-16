@@ -27,4 +27,7 @@ public class GeneratorUtil {
                 .withPlacement(orePlacement);
         generate(GenerationStage.Decoration.UNDERGROUND_ORES, oreFeature);
     }
+    public static void generatesurface(Biome biome, GenerationStage.Decoration stage, ConfiguredFeature<?,?> feature){
+        biome.addFeature(stage, feature);
+    }
 }
