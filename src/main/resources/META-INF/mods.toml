@@ -22,7 +22,7 @@ displayName="MoeCraft" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="https://github.com/mathematicalguy/moecraft" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="amhs.png" #optional
+logoFile="moecraft.png" #optional
 # A text field displayed in the mod UI
 credits="Garrett Poetker" #optional
 # A text field displayed in the mod UI
