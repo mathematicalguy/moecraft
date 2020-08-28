@@ -1,5 +1,6 @@
 package com.github.mathematicalguy.moecraft.entity;
 
+import com.github.mathematicalguy.moecraft.model.Conlon_model;
 import com.github.mathematicalguy.moecraft.registry.Registrations;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -75,32 +76,6 @@ import java.util.function.BiPredicate;
 
 public class Mrconlon extends VillagerEntity {
 
-    private static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(MemoryModuleType.HOME, MemoryModuleType.JOB_SITE, MemoryModuleType.MEETING_POINT, MemoryModuleType.MOBS, MemoryModuleType.VISIBLE_MOBS, MemoryModuleType.VISIBLE_VILLAGER_BABIES, MemoryModuleType.NEAREST_PLAYERS, MemoryModuleType.NEAREST_VISIBLE_PLAYER, MemoryModuleType.WALK_TARGET, MemoryModuleType.LOOK_TARGET, MemoryModuleType.INTERACTION_TARGET, MemoryModuleType.BREED_TARGET, MemoryModuleType.PATH, MemoryModuleType.INTERACTABLE_DOORS, MemoryModuleType.field_225462_q, MemoryModuleType.NEAREST_BED, MemoryModuleType.HURT_BY, MemoryModuleType.HURT_BY_ENTITY, MemoryModuleType.NEAREST_HOSTILE, MemoryModuleType.SECONDARY_JOB_SITE, MemoryModuleType.HIDING_PLACE, MemoryModuleType.HEARD_BELL_TIME, MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE, MemoryModuleType.LAST_SLEPT, MemoryModuleType.field_226332_A_, MemoryModuleType.LAST_WORKED_AT_POI, MemoryModuleType.GOLEM_LAST_SEEN_TIME);
-    private static final ImmutableList<SensorType<? extends Sensor<? super VillagerEntity>>> SENSOR_TYPES = ImmutableList.of(SensorType.NEAREST_LIVING_ENTITIES, SensorType.NEAREST_PLAYERS, SensorType.INTERACTABLE_DOORS, SensorType.NEAREST_BED, SensorType.HURT_BY, SensorType.VILLAGER_HOSTILES, SensorType.VILLAGER_BABIES, SensorType.SECONDARY_POIS, SensorType.GOLEM_LAST_SEEN);
-    private static final DataParameter<VillagerData> VILLAGER_DATA = EntityDataManager.createKey(VillagerEntity.class, DataSerializers.VILLAGER_DATA);
-    /** Mapping between valid food items and their respective efficiency values. */
-    public static final Map<Item, Integer> FOOD_VALUES = ImmutableMap.of(Items.BREAD, 4, Items.POTATO, 1, Items.CARROT, 1, Items.BEETROOT, 1);
-    /** Defaults items a villager regardless of its profession can pick up. */
-    private static final Set<Item> ALLOWED_INVENTORY_ITEMS = ImmutableSet.of(Items.BREAD, Items.POTATO, Items.CARROT, Items.WHEAT, Items.WHEAT_SEEDS, Items.BEETROOT, Items.BEETROOT_SEEDS);
-    private int timeUntilReset;
-    private boolean leveledUp;
-    @Nullable
-    private PlayerEntity previousCustomer;
-    private byte foodLevel;
-    private final GossipManager gossip = new GossipManager();
-    private long lastGossipDecay;
-    private int xp;
-    private long lastRestock;
-    private int field_223725_bO;
-    private long field_223726_bP;
-    public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<VillagerEntity, PointOfInterestType>> field_213774_bB = ImmutableMap.of(MemoryModuleType.HOME, (p_213769_0_, p_213769_1_) -> {
-        return p_213769_1_ == PointOfInterestType.HOME;
-    }, MemoryModuleType.JOB_SITE, (p_213771_0_, p_213771_1_) -> {
-        return p_213771_0_.getVillagerData().getProfession().getPointOfInterest() == p_213771_1_;
-    }, MemoryModuleType.MEETING_POINT, (p_213772_0_, p_213772_1_) -> {
-        return p_213772_1_ == PointOfInterestType.MEETING;
-    });
-
 
     public Mrconlon(EntityType<? extends VillagerEntity> type, World worldIn) {
         super(type, worldIn);
@@ -140,4 +115,5 @@ public class Mrconlon extends VillagerEntity {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200);
     }
-} 
+
+}
