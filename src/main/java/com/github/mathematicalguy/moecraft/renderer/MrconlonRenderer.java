@@ -9,15 +9,14 @@ import com.github.mathematicalguy.moecraft.model.Conlon_model;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.VillagerRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.VillagerModel;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 @OnlyIn(Dist.CLIENT)
-public class MrconlonRenderer extends VillagerRenderer<Mrconlon, EntityModel<Mrconlon>>
+public class MrconlonRenderer extends MobRenderer<Mrconlon, VillagerModel<Mrconlon>>
 {
     private static final ResourceLocation CONLON_TEXTURE = new ResourceLocation(MoeCraftMod.MOD_ID + ":textures/entity/conlon_texture.png");
 

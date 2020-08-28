@@ -19,6 +19,7 @@ public class Conlon_model<T extends Mrconlon> extends VillagerModel<T> {
     private final ModelRenderer head;
 
     public Conlon_model() {
+        super(0.0f);
         textureWidth = 64;
         textureHeight = 64;
 
@@ -50,10 +51,10 @@ public class Conlon_model<T extends Mrconlon> extends VillagerModel<T> {
         head.setTextureOffset(0, 0).addBox(-1.0F, -23.0F, -5.0F, 2.0F, 1.0F, 1.0F, 0.0F, false);
     }
 
-    @Override
-    public void setRotationAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-        //previously the render function, render code was moved to a method below
-    }
+//    @Override
+//    public void setRotationAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+//        //previously the render function, render code was moved to a method below
+//    }
 
     @Override
     public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
