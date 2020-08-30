@@ -33,6 +33,7 @@ import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.villager.IVillagerType;
@@ -82,13 +83,13 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 
-public class Mrconlon extends VillagerEntity {
-    public Mrconlon(EntityType<? extends VillagerEntity> type, World worldIn) {
+public class Mrconlon extends AnimalEntity {
+    public Mrconlon(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
     @Override
-    public VillagerEntity createChild(AgeableEntity ageable) {
+    public AnimalEntity createChild(AgeableEntity ageable) {
         Mrconlon entity = new Mrconlon(Registrations.Mr_Conlon.get(), this.world);
         entity.onInitialSpawn(this.world, this.world.getDifficultyForLocation(new BlockPos(entity)), SpawnReason.BREEDING, (ILivingEntityData) null, (CompoundNBT) null);
         entity.setGlowing(true);
@@ -107,10 +108,8 @@ public class Mrconlon extends VillagerEntity {
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, VexEntity.class, 8.0F, 0.5D, 0.5D));
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, PillagerEntity.class, 15.0F, 0.5D, 0.5D));
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, IllusionerEntity.class, 12.0F, 0.5D, 0.5D));
-        this.goalSelector.addGoal(1, new LookAtCustomerGoal(this));
-        this.goalSelector.addGoal(1, new TradeWithPlayerGoal(this));
         this.goalSelector.addGoal(3, new WaterAvoidingRandomWalkingGoal(this, 0.5D));
-        this.goalSelector.addGoal(10, new LookAtGoal(this, MobEntity.class, 8.0F));
+        this.goalSelector.addGoal(1, new LookAtGoal(this, MobEntity.class, 8.0F));
 
     }
 
@@ -120,5 +119,6 @@ public class Mrconlon extends VillagerEntity {
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200);
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
     }
+
 
 }
