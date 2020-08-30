@@ -1,13 +1,18 @@
 package com.github.mathematicalguy.moecraft.entity;
 
+import com.github.mathematicalguy.moecraft.init.ModBlocks;
 import com.github.mathematicalguy.moecraft.model.Conlon_model;
 import com.github.mathematicalguy.moecraft.registry.Registrations;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Maps;
 import com.mojang.datafixers.Dynamic;
 import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.ai.brain.memory.MemoryModuleStatus;
@@ -52,6 +57,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.GlobalPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.village.GossipManager;
@@ -72,11 +78,11 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiPredicate;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 
 public class Mrconlon extends VillagerEntity {
-
-
     public Mrconlon(EntityType<? extends VillagerEntity> type, World worldIn) {
         super(type, worldIn);
     }
@@ -103,7 +109,6 @@ public class Mrconlon extends VillagerEntity {
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, IllusionerEntity.class, 12.0F, 0.5D, 0.5D));
         this.goalSelector.addGoal(1, new LookAtCustomerGoal(this));
         this.goalSelector.addGoal(1, new TradeWithPlayerGoal(this));
-        this.goalSelector.addGoal(2, new TemptGoal(this, 1.1D, Ingredient.fromItems(Items.CARROT.getItem()), false));
         this.goalSelector.addGoal(3, new WaterAvoidingRandomWalkingGoal(this, 0.5D));
         this.goalSelector.addGoal(10, new LookAtGoal(this, MobEntity.class, 8.0F));
 
