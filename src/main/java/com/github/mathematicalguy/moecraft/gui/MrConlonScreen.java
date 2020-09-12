@@ -2,7 +2,6 @@ package com.github.mathematicalguy.moecraft.gui;
 
 import com.github.mathematicalguy.moecraft.MoeCraftMod;
 import com.mojang.blaze3d.systems.RenderSystem;
-import javafx.stage.Screen;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.MerchantContainer;
