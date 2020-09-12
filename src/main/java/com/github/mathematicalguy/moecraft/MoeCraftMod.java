@@ -74,6 +74,8 @@ public class MoeCraftMod
         RenderTypeLookup.setRenderLayer(ModBlocks.CopperOre, RenderType.getSolid());
         RenderTypeLookup.setRenderLayer(ModBlocks.AluminumOre, RenderType.getSolid());
         RenderTypeLookup.setRenderLayer(ModBlocks.Salt,RenderType.getSolid());
+
+        //Gui container Registration
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

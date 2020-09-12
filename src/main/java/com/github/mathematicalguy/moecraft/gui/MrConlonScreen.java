@@ -38,5 +38,8 @@ public class MrConlonScreen extends ContainerScreen<MerchantContainer> {
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
         RenderSystem.color4f(1.0f,1.0f,1.0f,1.0f);
         this.minecraft.getTextureManager().bindTexture(BACKGROUND_TEXTURE);
+        int x = (this.width - this.xSize) /2;
+        int y =(this.height - this.ySize) /2;
+        this.blit(x,y,0,0,this.xSize,this.ySize);
     }
 }
