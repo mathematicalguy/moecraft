@@ -1,5 +1,6 @@
 package com.github.mathematicalguy.moecraft.entity;
 
+import com.github.mathematicalguy.moecraft.Container.ConlonContainer;
 import com.github.mathematicalguy.moecraft.init.ModBlocks;
 import com.github.mathematicalguy.moecraft.model.Conlon_model;
 import com.github.mathematicalguy.moecraft.registry.Registrations;
@@ -28,16 +29,15 @@ import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.IReputationTracking;
 import net.minecraft.entity.merchant.IReputationType;
-import net.minecraft.entity.merchant.villager.VillagerData;
-import net.minecraft.entity.merchant.villager.VillagerEntity;
-import net.minecraft.entity.merchant.villager.VillagerProfession;
-import net.minecraft.entity.merchant.villager.VillagerTrades;
+import net.minecraft.entity.merchant.villager.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.villager.IVillagerType;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.container.MerchantContainer;
+import net.minecraft.inventory.container.SimpleNamedContainerProvider;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
@@ -74,22 +74,18 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 
-public class Mrconlon extends AnimalEntity {
-    public Mrconlon(EntityType<? extends AnimalEntity> type, World worldIn) {
+public class Mrconlon extends AbstractVillagerEntity {
+    public Mrconlon(EntityType<? extends AbstractVillagerEntity> type, World worldIn) {
         super(type, worldIn);
     }
-
     @Override
-    public AnimalEntity createChild(AgeableEntity ageable) {
+    public AbstractVillagerEntity createChild(AgeableEntity ageable) {
         Mrconlon entity = new Mrconlon(Registrations.Mr_Conlon.get(), this.world);
         entity.onInitialSpawn(this.world, this.world.getDifficultyForLocation(new BlockPos(entity)), SpawnReason.BREEDING, (ILivingEntityData) null, (CompoundNBT) null);
         entity.setGlowing(true);
@@ -118,6 +114,72 @@ public class Mrconlon extends AnimalEntity {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200);
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
+    }
+    public boolean processInteract(PlayerEntity player, Hand hand) {
+        ItemStack itemstack = player.getHeldItem(hand);
+        boolean flag = itemstack.getItem() == Items.NAME_TAG;
+        if (flag) {
+            itemstack.interactWithEntity(player, this, hand);
+            return true;
+        } else if (itemstack.getItem() != Items.VILLAGER_SPAWN_EGG && this.isAlive() && !this.hasCustomer() && !this.isSleeping() && !player.isSecondaryUseActive()) {
+            if (this.isChild()) {
+                this.shakeHead();
+                return super.processInteract(player, hand);
+            } else {
+                boolean flag1 = this.getOffers().isEmpty();
+                if (hand == Hand.MAIN_HAND) {
+                    if (flag1 && !this.world.isRemote) {
+                        this.shakeHead();
+                    }
+
+                    player.addStat(Stats.TALKED_TO_VILLAGER);
+                }
+
+                if (flag1) {
+                    return super.processInteract(player, hand);
+                } else {
+                    if (!this.world.isRemote && !this.offers.isEmpty()) {
+                       // this.displayMerchantGui(player);
+                    }
+
+                    return true;
+                }
+            }
+        } else {
+            return super.processInteract(player, hand);
+        }
+    }
+    private void shakeHead() {
+        this.setShakeHeadTicks(40);
+        if (!this.world.isRemote()) {
+            this.playSound(SoundEvents.ENTITY_VILLAGER_NO, this.getSoundVolume(), this.getSoundPitch());
+        }
+
+    }
+    private void displayConlonGui(PlayerEntity player) {
+        this.setCustomer(player);
+        this.openConlonContainer(player, this.getDisplayName(), this.getVillagerData().getLevel());
+    }
+   private void openConlonContainer(PlayerEntity player, ITextComponent p_213707_2_, int level) {
+        OptionalInt optionalint = player.openContainer(new SimpleNamedContainerProvider((p_213701_1_, p_213701_2_, p_213701_3_) -> {
+            return new ConlonContainer();
+        }, p_213707_2_));
+        if (optionalint.isPresent()) {
+            MerchantOffers merchantoffers = this.getOffers();
+            if (!merchantoffers.isEmpty()) {
+                player.openMerchantContainer(optionalint.getAsInt(), merchantoffers, level, this.getXp(), this.func_213705_dZ(), this.func_223340_ej());
+            }
+        }
+
+    }
+    @Override
+    protected void onVillagerTrade(MerchantOffer offer) {
+
+    }
+
+    @Override
+    protected void populateTradeData() {
+
     }
 
 //processinteract  method VillagerEntity class appears to be on mouse click
