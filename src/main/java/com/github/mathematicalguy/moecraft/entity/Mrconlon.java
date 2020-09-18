@@ -154,24 +154,8 @@ public class Mrconlon extends AbstractVillagerEntity {
         if (!this.world.isRemote()) {
             this.playSound(SoundEvents.ENTITY_VILLAGER_NO, this.getSoundVolume(), this.getSoundPitch());
         }
+    }
 
-    }
-    private void displayConlonGui(PlayerEntity player) {
-        this.setCustomer(player);
-        this.openConlonContainer(player, this.getDisplayName(), this.getVillagerData().getLevel());
-    }
-   private void openConlonContainer(PlayerEntity player, ITextComponent p_213707_2_, int level) {
-        OptionalInt optionalint = player.openContainer(new SimpleNamedContainerProvider((p_213701_1_, p_213701_2_, p_213701_3_) -> {
-            return new ConlonContainer();
-        }, p_213707_2_));
-        if (optionalint.isPresent()) {
-            MerchantOffers merchantoffers = this.getOffers();
-            if (!merchantoffers.isEmpty()) {
-                player.openMerchantContainer(optionalint.getAsInt(), merchantoffers, level, this.getXp(), this.func_213705_dZ(), this.func_223340_ej());
-            }
-        }
-
-    }
     @Override
     protected void onVillagerTrade(MerchantOffer offer) {
 
