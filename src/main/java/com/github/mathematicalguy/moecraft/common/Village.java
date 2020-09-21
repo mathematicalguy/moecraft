@@ -27,7 +27,7 @@ public class Village {
 
 
         //will registers conlons house for each biome
-        for (String biome: new String[]("plains","snowy","savanna","desert","taiga"))
+        for (String biome: new String[]{"plains","snowy","savanna","desert","taiga"})
             addToPool(new ResourceLocation("UNDETERMINED FIX PLEASE",rl));
     }
 
