@@ -28,7 +28,7 @@ public class Village {
 
         //will registers conlons house for each biome
         for (String biome: new String[]{"plains","snowy","savanna","desert","taiga"})
-            addToPool(new ResourceLocation("UNDETERMINED FIX PLEASE",rl));
+            addToPool(new ResourceLocation("village/"+biome+"/houses"),rl("village/houses/"+biome+"_chemist"), 1);
     }
 
     private static void addToPool(ResourceLocation pool, ResourceLocation toAdd, int weight)
@@ -43,5 +43,9 @@ public class Village {
         newPieces.add(new Pair<>(new SingleJigsawPiece(toAdd.toString()), weight));
         ResourceLocation name = old.getName();
         JigsawManager.REGISTRY.register(new JigsawPattern(pool, name, newPieces, JigsawPattern.PlacementBehaviour.RIGID));
+    }
+    public static ResourceLocation rl(String path)
+    {
+        return new ResourceLocation(MoeCraftMod.MOD_ID, path);
     }
 }
