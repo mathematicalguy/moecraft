@@ -1,23 +1,34 @@
 package com.github.mathematicalguy.moecraft.registry;
 
 import com.github.mathematicalguy.moecraft.MoeCraftMod;
+import com.github.mathematicalguy.moecraft.common.Village;
 import com.github.mathematicalguy.moecraft.entity.Mrconlon;
 import com.github.mathematicalguy.moecraft.properties.Itemprops;
 import com.github.mathematicalguy.moecraft.properties.NewItemTier;
 import com.github.mathematicalguy.moecraft.block.BlockBasic;
+import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.*;
 import net.minecraft.particles.ParticleType;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 import static com.github.mathematicalguy.moecraft.MoeCraftMod.MOD_ID;
 
@@ -31,6 +42,7 @@ public class Registrations {
     private static final DeferredRegister<ContainerType<?>> CONTAINERS = new DeferredRegister<>(ForgeRegistries.CONTAINERS, MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = new DeferredRegister<ParticleType<?>>(ForgeRegistries.PARTICLE_TYPES, MOD_ID);
     public static final DeferredRegister<PointOfInterestType> POINTS_OF_INTEREST = new DeferredRegister<>(ForgeRegistries.POI_TYPES, MOD_ID);
+    public static final DeferredRegister<VillagerProfession> PROFESSIONS = new DeferredRegister<>(ForgeRegistries.PROFESSIONS,MOD_ID);
 
     /*
      * Register Blocks
@@ -88,6 +100,41 @@ public class Registrations {
 //    public static final RegistryObject<ParticleType<MyParticleData>> MyParticle = PARTICLES.register("my_particle", () -> new MyParticleType());
 
 
+    /*
+    *Register Villager Proffesions
+     */
+
+    public static final RegistryObject<VillagerProfession> PROF_ENGINEER = PROFESSIONS.register(
+            Village.CHEMIST_TEXTURE.getPath(), () -> createProf(Village.CHEMIST_TEXTURE, POI_CRAFTINGTABLE.get(), SoundEvents.ENTITY_VILLAGER_WORK_MASON)
+    );
+
+    /*
+     * Register Point OF INtrest types
+     */
+
+    public static final RegistryObject<PointOfInterestType> POI_CRAFTINGTABLE = POINTS_OF_INTEREST.register(
+            "craftingtable", () -> createPOI("craftingtable", assembleStates(Blocks.CRAFTING_TABLE))
+    );
+
+
+    private static PointOfInterestType createPOI(String name, Collection<BlockState> block)
+    {
+        PointOfInterestType type = new PointOfInterestType(MOD_ID+":"+name, ImmutableSet.copyOf(block), 1, 1);
+        PointOfInterestType.registerBlockStates(type);
+        return type;
+    }
+
+
+    private static VillagerProfession createProf(ResourceLocation name, PointOfInterestType poi, SoundEvent sound)
+    {
+        return new VillagerProfession(
+                name.toString(),
+                poi,
+                ImmutableSet.<Item>builder().build(),
+                ImmutableSet.<Block>builder().build(),
+                sound
+        );
+    }
     public static void register(IEventBus bus) {
         MoeCraftMod.LOGGER.debug("Connecting the event bus with the registration system.");
         BLOCKS.register(bus);

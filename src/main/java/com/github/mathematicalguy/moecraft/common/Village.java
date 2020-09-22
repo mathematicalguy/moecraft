@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class Village {
     public static final Random RAND = new Random();
-    private static final ResourceLocation CHEMIST_TEXTURE = new ResourceLocation(MoeCraftMod.MOD_ID + ":textures/entity/gunsmith.png");
+    public static final ResourceLocation CHEMIST_TEXTURE = new ResourceLocation(MoeCraftMod.MOD_ID + ":textures/entity/gunsmith.png");
 
 
     //adding mr Conlon to the villager pool
