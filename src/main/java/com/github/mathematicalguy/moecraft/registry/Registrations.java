@@ -12,6 +12,7 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.*;
 import net.minecraft.particles.ParticleType;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -29,6 +30,7 @@ public class Registrations {
     private static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, MOD_ID);
     private static final DeferredRegister<ContainerType<?>> CONTAINERS = new DeferredRegister<>(ForgeRegistries.CONTAINERS, MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = new DeferredRegister<ParticleType<?>>(ForgeRegistries.PARTICLE_TYPES, MOD_ID);
+    public static final DeferredRegister<PointOfInterestType> POINTS_OF_INTEREST = new DeferredRegister<>(ForgeRegistries.POI_TYPES, MOD_ID);
 
     /*
      * Register Blocks
