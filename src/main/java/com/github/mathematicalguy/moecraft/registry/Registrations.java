@@ -101,19 +101,17 @@ public class Registrations {
 
 
     /*
-    *Register Villager Proffesions
+     * Register Point OF INtrest types
      */
-
-    public static final RegistryObject<VillagerProfession> PROF_ENGINEER = PROFESSIONS.register(
-            Village.CHEMIST_TEXTURE.getPath(), () -> createProf(Village.CHEMIST_TEXTURE, POI_CRAFTINGTABLE.get(), SoundEvents.ENTITY_VILLAGER_WORK_MASON)
+    public static final RegistryObject<PointOfInterestType> POI_CRAFTINGTABLE = POINTS_OF_INTEREST.register(
+            "craftingtable", () -> createPOI("craftingtable", assembleStates(Blocks.CRAFTING_TABLE))
     );
 
     /*
-     * Register Point OF INtrest types
+    * Registers Villager Proffesion
      */
-
-    public static final RegistryObject<PointOfInterestType> POI_CRAFTINGTABLE = POINTS_OF_INTEREST.register(
-            "craftingtable", () -> createPOI("craftingtable", assembleStates(Blocks.CRAFTING_TABLE))
+    public static final RegistryObject<VillagerProfession> PROF_ENGINEER = PROFESSIONS.register(
+            Village.CHEMIST_TEXTURE.getPath(), () -> createProf(Village.CHEMIST_TEXTURE, POI_CRAFTINGTABLE.get(), SoundEvents.ENTITY_VILLAGER_WORK_MASON)
     );
 
 
@@ -135,6 +133,10 @@ public class Registrations {
                 sound
         );
     }
+    private static Collection<BlockState> assembleStates(Block block) {
+        return block.getStateContainer().getValidStates().stream().collect(Collectors.toList());
+    }
+
     public static void register(IEventBus bus) {
         MoeCraftMod.LOGGER.debug("Connecting the event bus with the registration system.");
         BLOCKS.register(bus);

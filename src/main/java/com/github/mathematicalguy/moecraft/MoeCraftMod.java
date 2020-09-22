@@ -1,5 +1,6 @@
 package com.github.mathematicalguy.moecraft;
 
+import com.github.mathematicalguy.moecraft.common.Village;
 import com.github.mathematicalguy.moecraft.init.ModBlocks;
 import com.github.mathematicalguy.moecraft.init.ModItems;
 import com.github.mathematicalguy.moecraft.minecraft.GeneratorUtil;
@@ -59,6 +60,7 @@ public class MoeCraftMod
     }
     private void setup(final FMLCommonSetupEvent event)
     {
+        Village.init();
     }
 
     private void loadComplete(FMLLoadCompleteEvent event) {
