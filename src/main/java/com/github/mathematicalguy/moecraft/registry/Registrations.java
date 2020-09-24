@@ -110,8 +110,8 @@ public class Registrations {
     /*
     * Registers Villager Proffesion
      */
-    public static final RegistryObject<VillagerProfession> PROF_ENGINEER = PROFESSIONS.register(
-            Village.CHEMIST_TEXTURE.getPath(), () -> createProf(Village.CHEMIST_TEXTURE, POI_CRAFTINGTABLE.get(), SoundEvents.ENTITY_VILLAGER_WORK_MASON)
+    public static final RegistryObject<VillagerProfession> PROF_Chemist= PROFESSIONS.register(
+            Village.CHEMIST.getPath(), () -> createProf(Village.CHEMIST, POI_CRAFTINGTABLE.get(), SoundEvents.ENTITY_VILLAGER_WORK_MASON)
     );
 
 
@@ -146,5 +146,7 @@ public class Registrations {
         ENTITIES.register(bus);
         CONTAINERS.register(bus);
         PARTICLES.register(bus);
+        PROFESSIONS.register(bus);
+        POINTS_OF_INTEREST.register(bus) ;
     }
 }
