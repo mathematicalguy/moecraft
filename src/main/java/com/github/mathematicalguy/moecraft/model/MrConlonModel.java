@@ -1,17 +1,13 @@
 package com.github.mathematicalguy.moecraft.model;
 
-import com.github.mathematicalguy.moecraft.entity.Mrconlon;
+import com.github.mathematicalguy.moecraft.entity.MrConlon;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import net.minecraft.client.renderer.entity.model.AgeableModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.VillagerModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 
-public class Conlon_model<T extends Mrconlon> extends VillagerModel<T> {
+public class MrConlonModel<T extends MrConlon> extends VillagerModel<T> {
     private final ModelRenderer rightleg;
     private final ModelRenderer leftleg;
     private final ModelRenderer body;
@@ -19,7 +15,7 @@ public class Conlon_model<T extends Mrconlon> extends VillagerModel<T> {
     private final ModelRenderer rightarm;
     private final ModelRenderer head;
 
-    public Conlon_model() {
+    public MrConlonModel() {
         super(0.0f);
         textureWidth = 64;
         textureHeight = 64;

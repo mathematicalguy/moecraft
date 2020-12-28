@@ -41,9 +41,9 @@ public class Village {
 
 
         //will registers conlons house for each biome
-        for (String biome : new String[]{"plains", "snowy", "savanna", "desert", "taiga"})
+        for (String biome : new String[]{"plains", "snowy", "savanna", "desert", "taiga"}) {
             addToPool(new ResourceLocation("village/" + biome + "/houses"), rl("village/houses/" + biome + "_chemist"), 1);
-
+        }
         JigsawManager.REGISTRY.register(new JigsawPattern(
                 new ResourceLocation(MoeCraftMod.MOD_ID, "village/workstations"),
                 new ResourceLocation("empty"),
